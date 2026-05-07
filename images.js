@@ -391,5 +391,5 @@ const imageFiles = [
 "IMG_20190827_101611.webp",
 "IMG_20190827_101645.webp",
 "IMG-20241015-WA0003.webp",
-"IMG-20241211-WA0006.webp"
+"IMG-20241211-WA0006.webp",
 ];
