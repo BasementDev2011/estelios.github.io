@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Estelios</title>
 
 <style>
@@ -10,8 +11,7 @@ body
 {
     margin: 0;
     background: #111;
-    color: white;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 header
@@ -19,12 +19,13 @@ header
     text-align: center;
     padding: 20px;
     font-size: 28px;
+    color: white;
 }
 
 .gallery
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 10px;
     padding: 10px;
 }
@@ -32,9 +33,9 @@ header
 .gallery img
 {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 </style>
 </head>
@@ -42,14 +43,23 @@ header
 <body>
 
 <header>
-Estelios - The archive!
+Estelios
 </header>
 
-<div class="gallery">
+<div class="gallery" id="gallery"></div>
 
-<img src="20241011_063512.webp">
+<script src="images.js"></script>
 
-</div>
+<script>
+const gallery = document.getElementById("gallery");
+
+for (const file of imageFiles)
+{
+    const img = document.createElement("img");
+    img.src = file;
+    gallery.appendChild(img);
+}
+</script>
 
 </body>
 </html>
