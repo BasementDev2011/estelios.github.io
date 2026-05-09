@@ -36,6 +36,7 @@ header
     height: 180px;
     object-fit: cover;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .marquee
@@ -68,38 +69,76 @@ header
         transform: translateX(-100%);
     }
 }
+
+.popup
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup img
+{
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+}
 </style>
 </head>
 
 <body>
 
-
-    
 <header>
 Estelios - The archive!
 
 <div class="marquee">
     <span>
-        Welcome to the archive • New uploads added weekly • Estelios Collection
+        Welcome to the archive / Occational new uploads
     </span>
 </div>
 
-<div class="gallery" id="gallery"></div>
+RIP Estelios (2006 - 2026)
 </header>
 
 <div class="gallery" id="gallery"></div>
+
+<div class="popup" id="popup">
+    <img id="popupImage">
+</div>
 
 <script src="images.js"></script>
 
 <script>
 const gallery = document.getElementById("gallery");
+const popup = document.getElementById("popup");
+const popupImage = document.getElementById("popupImage");
 
 for (const file of imageFiles)
 {
     const img = document.createElement("img");
+
     img.src = file;
+
+    img.onclick = function()
+    {
+        popup.style.display = "flex";
+        popupImage.src = file;
+    };
+
     gallery.appendChild(img);
 }
+
+popup.onclick = function()
+{
+    popup.style.display = "none";
+};
 </script>
 
 </body>
