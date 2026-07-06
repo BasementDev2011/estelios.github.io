@@ -124,6 +124,7 @@ for (const file of imageFiles)
 {
     const img = document.createElement("img");
 
+    img.loading = "lazy";
     img.src = file;
 
     img.onclick = function()
